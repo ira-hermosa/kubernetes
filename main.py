@@ -12,13 +12,7 @@ import jwt
 from flask import Flask, jsonify, request, abort
 
 
-#JWT_SECRET = os.environ.get('JWT_SECRET', 'abc123abc1234')
-import boto3
-ssm = boto3.client("ssm")
-JWT_SECRET = ssm.get_parameter(
-    Name='JWT_SECRET',
-    WithDecryption=True
-) 
+JWT_SECRET = os.environ.get('JWT_SECRET', 'abc123abc1234')
 
 LOG_LEVEL = os.environ.get('LOG_LEVEL', 'INFO')
 
